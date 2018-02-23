@@ -5,12 +5,12 @@
 
 /*
 	return all users
- 	note: view the JSON response from this directly: http://art-share.herokuapp.com/api/v1/users/
+ 	note: view the JSON response from this directly: https://art-share.herokuapp.com/api/v1/users/
  */
 function returnUsers(){
 	$.ajax({
 		type: 'GET',
-		url: 'http://art-share.herokuapp.com/api/v1/users/'
+		url: 'https://art-share.herokuapp.com/api/v1/users/'
 	}).done(function(response){
 		console.log('all users: ', response);
 	}).fail(function(error){
@@ -23,7 +23,7 @@ function returnUsers(){
 function createUser(fname, lname, password, email){
 	$.ajax({
 		type: 'POST',
-		url: 'http://art-share.herokuapp.com/api/v1/users/',
+		url: 'https://art-share.herokuapp.com/api/v1/users/',
 		data: {
 			user: {
 				fname: fname,
@@ -43,7 +43,7 @@ function createUser(fname, lname, password, email){
 function loginUser(email, password){
 	$.ajax({
 		type: 'POST',
-		url: 'http://art-share.herokuapp.com/api/v1/sessions/new',
+		url: 'https://art-share.herokuapp.com/api/v1/sessions/new',
 		data: {
 			email: email,
 			password: password
@@ -61,7 +61,7 @@ function loginUser(email, password){
 function addPainting(userId, image_url, name){
 	$.ajax({
 		type: 'POST',
-		url: 'http://art-share.herokuapp.com/api/v1/users/' + userId + '/paintings/',
+		url: 'https://art-share.herokuapp.com/api/v1/users/' + userId + '/paintings/',
 		data: {
 			painting: {
 				image_url: image_url,
@@ -79,7 +79,7 @@ function addPainting(userId, image_url, name){
  function listPaintings(userId){
 	$.ajax({
 		type: 'GET',
-		url: 'http://art-share.herokuapp.com/api/v1/users/' + userId + '/paintings/'
+		url: 'https://art-share.herokuapp.com/api/v1/users/' + userId + '/paintings/'
 	}).done(function(response){
 		console.log(response.result);
 		// loop over the response
@@ -103,7 +103,7 @@ function getCurrentUser(){
 	$.ajax({
 		type: 'GET',
 		dataType: 'json',
-		url: 'http://art-share.herokuapp.com/api/v1/sessions/'
+		url: 'https://art-share.herokuapp.com/api/v1/sessions/'
 	}).done(function(response){
 		console.log('success: ', response);
 	});
